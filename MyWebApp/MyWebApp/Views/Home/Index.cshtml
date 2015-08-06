@@ -1,0 +1,21 @@
+﻿@model List<MyWebApp.Models.HomeViewModel>
+
+@{
+    ViewBag.Title = "Info";
+}
+
+<h2>Info</h2>
+
+@foreach (var i in Model)
+{
+    <div>
+        <b>Name:</b>&nbsp;@i.Name
+    </div>
+    <div>
+        <b>Company:</b>&nbsp;@i.Company
+    </div>
+    <div>
+        <b>URL:</b>&nbsp;@i.Url
+    </div>
+    <div>&nbsp;</div>
+}
