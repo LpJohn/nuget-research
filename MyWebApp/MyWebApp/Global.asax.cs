@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using MyWebApp.Application;
 using MyWebApp.App_Start;
 
 namespace MyWebApp
@@ -13,6 +15,9 @@ namespace MyWebApp
     {
         protected void Application_Start()
         {
+
+            Mapper.Initialize(x => x.AddProfile<MapperProfile>());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

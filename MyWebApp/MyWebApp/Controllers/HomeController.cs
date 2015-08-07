@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using AutoMapper;
 using MyLibrary;
 using MyWebApp.Models;
 
@@ -12,16 +13,7 @@ namespace MyWebApp.Controllers
         {
             var entity = new MyEntity();
             var list = entity.GetList();
-            var model = new List<HomeViewModel>();
-            foreach (var valueObject in list)
-            {
-                model.Add(new HomeViewModel
-                          {
-                              Name = valueObject.Name,
-                              Company = valueObject.Company,
-                              Url = valueObject.Url,
-                          });
-            }
+            var model = Mapper.Map<List<HomeViewModel>>(list);
 
             return View(model);
         }
